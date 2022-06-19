@@ -2,8 +2,14 @@ import React from 'react'
 
 const Home = () => {
   return (
+
     <>
-     <h1>Home Page</h1> 
+        <div className="box">
+          <div className="left"></div>
+          <h1 className='heading'>Welcome to MERN Stack</h1> 
+          <div className="right"></div>
+        </div>
+        
     </>
   )
 }

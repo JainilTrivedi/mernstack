@@ -5,30 +5,21 @@ import About from "./components/About";
 import SignUp from "./components/Signup";
 import Login from "./components/Login";
 import Contact from "./components/Contact";
+import ErrorPage from "./components/Error"
 import { Route,Routes } from 'react-router-dom';
-
+import "./App.css";
 
 const App = () => {
   return (
     <>
+
       <Navbar />
       <Routes>
+        <Route path='/*' element={<ErrorPage />} />
         <Route path='/' element={<Home />} />
-      </Routes>
-
-      <Routes>
         <Route path='/about' element={<About />} />
-      </Routes>
-
-      <Routes>
         <Route path='/signup' element={<SignUp />} />
-      </Routes>
-
-      <Routes>
         <Route path='/contact' element={<Contact />} />
-      </Routes>
-
-      <Routes>
         <Route path='/Login' element={<Login />} />
       </Routes>
     </>

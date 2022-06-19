@@ -39,12 +39,12 @@ router.post("/register", (req,res)=>{
 
 /* Usnig AYSNC-AWAIT */
 router.post("/register",async (req,res)=>{
-    const {name,email,phone,work,password,confirmPassword} = req.body;
+    const {name,email,password,confirmPassword} = req.body;
     console.log(req.body+"\n\n");
-    console.log(name,email,phone,work,password,confirmPassword);
+    console.log(name,email,password,confirmPassword);
 
     try{    
-        if( !name|| !email || !phone || !work || !password || !confirmPassword ){     
+        if( !name|| !email ||  !password || !confirmPassword ){     
             return res.status(422).json({error:"Enter valid details"});
         }else if(password != confirmPassword){
             return res.status(422).json({error:"Passwords do not match"});
@@ -52,12 +52,12 @@ router.post("/register",async (req,res)=>{
             const userexist = await USER.findOne({email:email})
                 // console.log(userexist);
                 if( userexist ) {
-                    return res.status(422).json({error:"Email already exists"});
+                    return res.status(422).json({error:"User already exists"});
                 }
-                const user = new USER({name,email,phone,work,password,confirmPassword});
+                const user = new USER({name,email,password,confirmPassword});
                 const userRegistered = await user.save();
                 if(userRegistered){
-                    res.status(201).json({msg:"Registered Successfully"});
+                    res.status(201).json({userRegistered});
                 }
         }
     }catch(err){

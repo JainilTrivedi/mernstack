@@ -1,38 +1,305 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navimg{
+  width: 150px;;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  /* background: url("img/background.jpg") no-repeat center ; */
+  background-size: cover;
+  font-family: sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login-container{
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.form{
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: 80px 40px 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
+}
+
+.form::before{
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgb(255, 255, 255,0.1);
+  pointer-events: none;
+  transform: skewX(-30deg);
+  transform-origin: bottom left;
+
+}
+
+.form img{
+  position: absolute;
+  top: -50px;
+  left: 37%;
+  width: 100px;
+  /* height: 100px; */
+  border-radius: 50%;
+}
+
+.form h2{
+  text-align: center;
+  margin-bottom: 2rem;
+  color: green; /*rgb(255, 94, 0);*/
+}
+
+.form inputs{
+  position: relative;
+}
+
+.form .inputs input{
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px;
+  margin-bottom: 30px;
+  border: none;                           
+  /*
+      comment border and border-bottom for rectangle , uncomment for underline
+  */
+  border-bottom: 1px solid white;
+  outline: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+.form .inputs label {
+  position: absolute;
+  /* top: 0; */
+  left: 45px; 
+  padding: 5px 0px;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: .3s ease-out;
+}
+
+.form .inputs input:focus + label,   /* focus -> when we click valid-> when we have written something   */
+.form .inputs input:valid + label  {
+  transform: translateY(-20px);
+  color:green;
+  font-size: .8rem;
+}
+
+.submit-button{
+  display: block;
+  margin-left: auto;
+  border: none;
+  outline: none;
+  background:green;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.forgotPassword{
+  color: inherit;
+}
+#forgotPass{
+  /* display: none; */
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: white;
+  opacity: 0;
+  height: 0;
+  transition: 0.6s;
+}
+
+#forgotPass:target{
+  height: 100%;
+  opacity: 1;
+  /* background: url("/img/background.jpg"); */
+}
+
+.close{
+  position: absolute;
+  right: 1.5rem;
+  top: .5rem;
+  font-weight: 1000;
+  color: inherit;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+
+.card img{
+  width: 25.0vw;
+  height: 40vh;
+  margin: 20px;
+}
+
+
+/* Home */
+.left{
+  display: inline-block;
+position: absolute;
+width: 50vw;
+height: 100vh;
+border-radius: 5px;
+background-color: rgb(217, 248, 217);
+z-index: 1;
+}
+
+.right{
+display: inline-block;
+width: 50   vw;
+height: 100vh;
+position: absolute;
+border-radius: 5px;
+}
+
+.box{
+  display: flex;
+}
+.heading{
+  color:green;
+  font-weight: 700;
+  padding-left: 37vw;
+  padding-top: 40vh;
+  overflow-x: visible;
+  z-index: 2;
+}
+
+
+
+
+/* Contact */
+
+input[type=text], select, textarea {
+  width: 100%; 
+  padding: 12px; 
+  border: 1px solid rgb(102, 97, 97); 
+  border-radius: 4px;
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical 
+}
+
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: green;
+}
+
+.container {
+  display: flex;
+  /* justify-content; */
+  
+  border-radius: 5px;
+}
+
+/* ABOUT */
+
+.row{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.column {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.container-about {
+
+  padding: 0 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.container-about::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+/* Error */
+.notfound{
+  font-size: 150px;
+  /* font-weight: -100; */
+  color: rgb(174, 163, 163);
+  margin-left: 18vw;
+  margin-top: 20vh;
+  z-index: 1;
+}
+
+.center{
+  margin-top: 20px;
+  margin-left: 48vw;
 }
